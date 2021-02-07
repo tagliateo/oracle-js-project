@@ -13,7 +13,7 @@ class PostsController < ApplicationController
     end 
 
     def destroy 
-        post = Post.find(params[:id])
+        post = Post.find_by_id(params[:id])
         post.destroy
     end 
 
