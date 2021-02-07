@@ -29,5 +29,22 @@ class Comment {
     
     }
     
+    static submitComment(comment, commentList, postId){
+        fetch(commentURL, {
+            method: "POST",
+            headers: {
+                "Content-type": "application/json", 
+                "Accept": "application/json"
+            }, 
+            body: JSON.stringify({
+                content: comment, 
+                post_id: postId
+            })
+        }).then(res => res.json())
+        .then(comment => {
+            let newComment = new Comment(comment)
+            newComment.renderComment(commentList)
+        })
+    }
 
 }
