@@ -8,8 +8,10 @@ class PostsController < ApplicationController
 
         if post.save 
             render json: PostSerializer.new(post)
+            
+        else
+            render json: {message: "Post could not be added"}, status: 400
         end
-
     end 
 
     def destroy 

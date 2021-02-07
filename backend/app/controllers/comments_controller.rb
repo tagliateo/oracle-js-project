@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
         if comment.save 
             render json: comment 
         else 
-            byebug 
+            render json: {message: "Comment could not be added"}, status: 400
         end 
     end 
 
