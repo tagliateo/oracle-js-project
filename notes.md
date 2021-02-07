@@ -19,3 +19,17 @@
 
 **About**
 - Oracle is an app that lets users post anonymous stories or "posts". Are they fact or fiction? Only the Oracle knows!
+
+**Stretch Goals**
+- Add user model 
+- Implement search feature
+- make it look decent
+
+**Project Must Include**
+- OOJS
+- Serializers
+- CRD Functionality
+- DOM Manipulation
+- Must function on one page (use .reload())
+- Have fun!
+- Lots of commits!
