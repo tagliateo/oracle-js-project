@@ -55,6 +55,37 @@ class Post {
         postForm.reset()
     }
 
-   
+    static submitPost(){
+        event.preventDefault()
+        const configObj = {
+            method: "POST", 
+            headers: {
+                "Content-type": "application/json", 
+                "Accept": "application/json"
+            }, 
+            body: JSON.stringify({
+                content: postInput.value
+            })
+        }
+    
+        fetch(postURL, configObj)
+        .then(res => res.json())
+        .then(data => {
+            let newPost = new Post(data.data)
+            newPost.renderPost()
+        })
+    
+    }
+
+    deletePost(){
+        const postId = this.parentElement.dataset.id
+    
+        fetch(`${postURL}/${postId}`, {
+            method: "DELETE"
+        })
+
+        this.parentElement.remove()
+    }
+
 
 }
