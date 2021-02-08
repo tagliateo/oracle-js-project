@@ -22,9 +22,9 @@ class Comment {
         li.dataset.id = this.post_id
         li.innerText = this.content
     
-        const deleteBtn = document.createElement('button')
-        deleteBtn.innerText = "X"
-        li.appendChild(deleteBtn)
+        // const deleteBtn = document.createElement('button')
+        // deleteBtn.innerText = "X"
+        // li.appendChild(deleteBtn)
         commentList.appendChild(li)
     
     }

@@ -44,7 +44,6 @@ class Post {
         const commentList = document.createElement('ul')
         this.comments.forEach(comment => {
             let commentObj = new Comment(comment)
-            console.log(commentObj)
             commentObj.renderComment(commentList)
         })
     
@@ -78,14 +77,34 @@ class Post {
     }
 
     deletePost(){
+        // debugger;
+
         const postId = this.parentElement.dataset.id
     
         fetch(`${postURL}/${postId}`, {
-            method: "DELETE"
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            }
         })
 
         this.parentElement.remove()
     }
+
+    // static deletePost = (event) => {
+    //     event.preventDefault()
+    //     const configObj = {
+    //       method: "DELETE",
+    //       headers: {
+    //         "Content-Type": "application/json",
+    //         "Accept": "application/json"
+    //       }
+
+    //     }
+    //         fetch(`${postURL}` + `/${event.target.dataset.catId}`, configObj)
+    //     event.target.parentElement.remove()
+    //   }
 
 
 }
