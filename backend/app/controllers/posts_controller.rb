@@ -3,6 +3,10 @@ class PostsController < ApplicationController
         render json: Post.all.map {|post| PostSerializer.new(post)}
     end 
 
+    def show
+        render json: @post
+    end
+
     def create 
         post = Post.new(post_params)
 
