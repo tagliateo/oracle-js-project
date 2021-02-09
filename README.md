@@ -17,9 +17,17 @@
   <li>Custom CSS3 styling</li>
 </ul>
 
+## Getting Started
+
+To get started simply fork or clone the project, open a terminal and cd into the project directory. Cd into backend/ and run `rails s`. Open the index.html file in your browser of choice and begin posting messages!
+
 <h2> Future Implementation </h2>
 
 <ul>
   <li>User sign up and login</li>
   <li>Delete Comments</li>
 </ul>
+
+## License
+
+The app is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
