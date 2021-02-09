@@ -20,7 +20,7 @@ class Post {
         .then(res => res.json())
         .then(posts => {
             for(let post of posts){
-                let newList = new Post(post.data)
+                new Post(post.data)
             }
             this.renderPosts()
         })
@@ -77,7 +77,7 @@ class Post {
     }
 
     deletePost(){
-        // debugger;
+        debugger;
 
         const postId = this.parentElement.dataset.id
     
@@ -102,7 +102,7 @@ class Post {
     //       }
 
     //     }
-    //         fetch(`${postURL}` + `/${event.target.dataset.catId}`, configObj)
+    //         fetch(`${postURL}/${event.target.dataset.postId}`, configObj)
     //     event.target.parentElement.remove()
     //   }
 

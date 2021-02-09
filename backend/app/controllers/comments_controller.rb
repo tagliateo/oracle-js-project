@@ -5,6 +5,10 @@ class CommentsController < ApplicationController
         render json: Comment.all
     end 
 
+    def show
+        render json: @comment
+    end
+
     def create 
         comment = Comment.new(comment_params)
 

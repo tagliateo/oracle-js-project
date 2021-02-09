@@ -22,11 +22,13 @@ class Comment {
         li.dataset.id = this.post_id
         li.innerText = this.content
     
-        // const deleteBtn = document.createElement('button')
-        // deleteBtn.innerText = "X"
-        // li.appendChild(deleteBtn)
+        const deleteBtn = document.createElement('button')
+        deleteBtn.innerText = "delete"
+        li.appendChild(deleteBtn)
         commentList.appendChild(li)
-    
+
+        
+        deleteBtn.addEventListener("click", this.deleteComment)    
     }
     
     static submitComment(comment, commentList, postId){
@@ -47,4 +49,29 @@ class Comment {
         })
     }
 
+    // static deleteComment =  (event) => {
+    //     event.preventDefault()
+    //     const configObj = {
+    //         method: 'DELETE',
+    //         headers: {
+    //             "Content-Type": 'application/json',
+    //             "Accept": "application/json"
+    //         }
+    //     }
+    //     fetch(`${commentURL}/${event.target.dataset.postId}`, configObj)
+    //     event.target.parentElement.remove()
+    // }
+
+   deleteComment(){
+        debugger;
+        const commentID = this.parentElement.datatset.id
+        fetch(`${commentURL}/${commentID}`), {
+            method: 'DELETE',
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            }
+        }
+        this.parentElement.remove()
+    }
 }
