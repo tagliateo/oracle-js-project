@@ -13,13 +13,14 @@ class PostsController < ApplicationController
         if post.save 
             render json: PostSerializer.new(post)
             
+
         else
             render json: {message: "Post could not be added"}, status: 400
         end
     end 
 
     def destroy 
-        post = Post.find_by_id(params[:id])
+        post = Post.find_by(params[:id])
         post.destroy
     end 
 
