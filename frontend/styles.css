@@ -46,6 +46,7 @@ h1 {
 }
 .post-list{
     display: flex; 
+    flex-direction: column;
     padding: 2em;
     justify-content: center;
     align-items: center; 

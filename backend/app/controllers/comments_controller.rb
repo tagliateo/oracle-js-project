@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
     before_action :set_comment, only: [:destroy]
 
     def index 
-        render json: Comment.all
+        render json: Comment.all.map {|comment| CommentSerializer.new(comment)}
     end 
 
     def show
