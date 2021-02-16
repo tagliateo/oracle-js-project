@@ -10,9 +10,23 @@ class Post {
     }
 
     static renderPosts(){
-        for(let post of this.allPosts){
+        let sortedPosts = this.sortedPosts()
+        debugger;
+       
+        for(let post of sortedPosts){
             post.renderPost()
         }
+        // Post.sortedPosts()
+    }
+
+    // a new post gets put at the top
+    // posts are stored in an array allPosts
+    //sort out the array of allPosts to display the newest post
+
+    static sortedPosts(){
+        return this.allPosts.sort(function (a, b){
+            return b.id - a.id
+        })
     }
 
     //Read - 

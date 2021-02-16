@@ -22,14 +22,14 @@ class Comment {
         li.dataset.id = this.id
         li.innerText = this.content
         
-        const deleteBtn = document.createElement('button')
-        deleteBtn.method = 'delete'
-        deleteBtn.innerText = "delete"
-        li.appendChild(deleteBtn)
+        // const deleteBtn = document.createElement('button')
+        // deleteBtn.method = 'delete'
+        // deleteBtn.innerText = "delete"
+        // li.appendChild(deleteBtn)
         commentList.appendChild(li)
 
         
-        deleteBtn.addEventListener("click", this.deleteComment)    
+        // deleteBtn.addEventListener("click", this.deleteComment)    
     }
     
     static submitComment(comment, commentList, postId){
@@ -65,19 +65,19 @@ class Comment {
     //     event.target.parentElement.remove()
     // }
 
-    deleteComment(){
-        debugger;
-        // preventDefault()
-        const commentId = this.parentElement.dataset.id
-        // const postId = this.parentNode.parentNode.parentElement.dataset.id 
+    // deleteComment(){
+    //     debugger;
+    //     // preventDefault()
+    //     const commentId = this.parentElement.dataset.id
+    //     // const postId = this.parentNode.parentNode.parentElement.dataset.id 
 
-        fetch(`${postURL}/${commentId}`), {
-            method: "DELETE",
-        }
+    //     fetch(`${postURL}/${commentId}`), {
+    //         method: "DELETE",
+    //     }
       
 
-        this.parentElement.remove()
+    //     this.parentElement.remove()
 
-        // this.location.reload(commentId)
-    }
+    //     // this.location.reload(commentId)
+    // }
 }
