@@ -14482,3 +14482,80 @@ Processing by PostsController#index as */*
 Completed 200 OK in 25ms (Views: 17.6ms | ActiveRecord: 2.6ms | Allocations: 5043)
 
 
+Started GET "/posts" for ::1 at 2021-03-06 12:55:00 -0600
+  [1m[35m (3.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as */*
+  [1m[36mPost Load (0.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:3:in `map'
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 19]]
+  ↳ app/controllers/posts_controller.rb:3:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 20]]
+  ↳ app/controllers/posts_controller.rb:3:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 21]]
+  ↳ app/controllers/posts_controller.rb:3:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 22]]
+  ↳ app/controllers/posts_controller.rb:3:in `index'
+Completed 200 OK in 84ms (Views: 46.3ms | ActiveRecord: 3.7ms | Allocations: 12342)
+
+
+Started POST "/posts" for ::1 at 2021-03-06 12:55:06 -0600
+Processing by PostsController#create as JSON
+  Parameters: {"content"=>"post 5", "post"=>{"content"=>"post 5"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:13:in `create'
+  [1m[36mPost Create (2.8ms)[0m  [1m[32mINSERT INTO "posts" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "post 5"], ["created_at", "2021-03-06 18:55:06.219234"], ["updated_at", "2021-03-06 18:55:06.219234"]]
+  ↳ app/controllers/posts_controller.rb:13:in `create'
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:13:in `create'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 23]]
+  ↳ app/controllers/posts_controller.rb:14:in `create'
+Completed 200 OK in 13ms (Views: 1.9ms | ActiveRecord: 5.2ms | Allocations: 3655)
+
+
+Started DELETE "/posts/23" for ::1 at 2021-03-06 12:55:14 -0600
+Processing by PostsController#destroy as */*
+  Parameters: {"id"=>"23"}
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (23) LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:23:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:24:in `destroy'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 19]]
+  ↳ app/controllers/posts_controller.rb:24:in `destroy'
+  [1m[36mPost Destroy (0.6ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 19]]
+  ↳ app/controllers/posts_controller.rb:24:in `destroy'
+  [1m[35m (2.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:24:in `destroy'
+Completed 204 No Content in 29ms (ActiveRecord: 4.3ms | Allocations: 3667)
+
+
+Started POST "/posts" for ::1 at 2021-03-06 12:55:20 -0600
+Processing by PostsController#create as JSON
+  Parameters: {"content"=>"post 6", "post"=>{"content"=>"post 6"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:13:in `create'
+  [1m[36mPost Create (0.7ms)[0m  [1m[32mINSERT INTO "posts" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "post 6"], ["created_at", "2021-03-06 18:55:20.303108"], ["updated_at", "2021-03-06 18:55:20.303108"]]
+  ↳ app/controllers/posts_controller.rb:13:in `create'
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:13:in `create'
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 24]]
+  ↳ app/controllers/posts_controller.rb:14:in `create'
+Completed 200 OK in 23ms (Views: 8.7ms | ActiveRecord: 2.9ms | Allocations: 3400)
+
+
+Started DELETE "/posts/24" for ::1 at 2021-03-06 12:55:24 -0600
+Processing by PostsController#destroy as */*
+  Parameters: {"id"=>"24"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (24) LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:23:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:24:in `destroy'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 20]]
+  ↳ app/controllers/posts_controller.rb:24:in `destroy'
+  [1m[36mPost Destroy (0.8ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 20]]
+  ↳ app/controllers/posts_controller.rb:24:in `destroy'
+  [1m[35m (3.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:24:in `destroy'
+Completed 204 No Content in 15ms (ActiveRecord: 5.1ms | Allocations: 3597)
+
+

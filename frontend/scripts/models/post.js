@@ -11,7 +11,7 @@ class Post {
 
     static renderPosts(){
         let sortedPosts = this.sortedPosts()
-        debugger;
+        // debugger;
        
         for(let post of sortedPosts){
             post.renderPost()
